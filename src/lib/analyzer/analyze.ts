@@ -1,4 +1,4 @@
-import { EFFORT, MAX_SCRIPT_WORDS, MODELS, type Pace, type Platform } from "./config";
+import { CALL_BUDGET_MS, EFFORT, MAX_SCRIPT_WORDS, MODELS, type Pace, type Platform } from "./config";
 import { AnalyzerError, callStructured, type CallUsage } from "./client";
 import {
   ANALYZE_SYSTEM,
@@ -88,6 +88,7 @@ ${renderLanguageRule(ctx, "summary, hook_promise, reasoning, reason, fix, top_fi
     system: ANALYZE_SYSTEM,
     user,
     schema: AnalysisOutput,
+    budgetMs: CALL_BUDGET_MS.analyze,
   });
 
   const byId = new Map(data.beats.map((b) => [b.id, b]));
@@ -154,6 +155,7 @@ ${renderLanguageRule(ctx, "visual and why_it_works")} "spoken" and "on_screen_te
     system: HOOKS_SYSTEM,
     user,
     schema: HooksOutput,
+    budgetMs: CALL_BUDGET_MS.hooks,
   });
 
   const hooks = data.hooks.slice(0, 5).map((h) => ({
@@ -212,6 +214,7 @@ ${renderLanguageRule(ctx, "voice_notes and change_note")} Every "rewritten" line
     system: REWRITE_SYSTEM,
     user,
     schema: RewriteOutput,
+    budgetMs: CALL_BUDGET_MS.rewrite,
   });
 
   const allowed = new Set(targets.map((b) => b.id));

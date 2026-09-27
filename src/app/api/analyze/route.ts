@@ -5,7 +5,7 @@ import { DEFAULT_LOCALE } from "@/lib/i18n/locales";
 import { metered } from "@/lib/limits";
 import { requireUserId, userClient } from "@/lib/supabase";
 
-export const maxDuration = 60;
+export const maxDuration = 120;
 
 export async function POST(request: Request) {
   try {

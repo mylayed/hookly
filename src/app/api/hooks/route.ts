@@ -4,7 +4,7 @@ import { saveExtras } from "@/lib/checks";
 import { metered } from "@/lib/limits";
 import { loadOwnCheck } from "@/lib/check-action";
 
-export const maxDuration = 60;
+export const maxDuration = 120;
 
 export async function POST(request: Request) {
   try {
