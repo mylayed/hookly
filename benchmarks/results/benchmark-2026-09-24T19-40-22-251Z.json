@@ -1,0 +1,53 @@
+{
+  "passed": 2,
+  "total": 2,
+  "correct": 0,
+  "pairs": 0,
+  "cost": 0.0377436,
+  "results": [
+    {
+      "id": "groceries-weak",
+      "band": "weak",
+      "total": 18,
+      "scores": {
+        "hook": 1,
+        "clarity": 3,
+        "pacing": 2,
+        "curiosity": 2,
+        "payoff": 1
+      },
+      "inBand": true,
+      "cost": 0.0185658,
+      "usage": {
+        "model": "claude-sonnet-5",
+        "inputTokens": 380,
+        "outputTokens": 1691,
+        "cacheReadTokens": 4479,
+        "cacheWriteTokens": 0,
+        "costUsd": 0.0185658
+      }
+    },
+    {
+      "id": "fitness-weak",
+      "band": "weak",
+      "total": 0,
+      "scores": {
+        "hook": 1,
+        "clarity": 1,
+        "pacing": 1,
+        "curiosity": 1,
+        "payoff": 1
+      },
+      "inBand": true,
+      "cost": 0.0191778,
+      "usage": {
+        "model": "claude-sonnet-5",
+        "inputTokens": 371,
+        "outputTokens": 1754,
+        "cacheReadTokens": 4479,
+        "cacheWriteTokens": 0,
+        "costUsd": 0.0191778
+      }
+    }
+  ]
+}

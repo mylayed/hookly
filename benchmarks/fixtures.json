@@ -1,0 +1,69 @@
+{
+  "_note": "Synthetic reference scripts written for testing. 'band' is the expected quality: weak (total <= 45), ok (35-70), strong (>= 65). Add real transcripts with known retention as {\"source\": \"real\", ...} - those are the ones that matter.",
+  "fixtures": [
+    {
+      "id": "groceries-weak",
+      "source": "synthetic",
+      "band": "weak",
+      "platform": "youtube_shorts",
+      "niche": "personal finance",
+      "script": "Hey guys, welcome back to my channel!\nToday I want to talk a little bit about saving money on groceries.\nSo groceries are really expensive right now, as I'm sure you all know.\nAnyway, there are a few things you can do.\nYou can make a list before you go to the store.\nYou can also buy things on sale.\nAnd you can try not to go shopping when you're hungry, that's a big one.\nSo yeah, those are some tips.\nLet me know what you think in the comments and don't forget to like and subscribe!"
+    },
+    {
+      "id": "groceries-strong",
+      "source": "synthetic",
+      "band": "strong",
+      "platform": "youtube_shorts",
+      "niche": "personal finance",
+      "script": "I cut my grocery bill from $600 to $310 without clipping a single coupon.\n[receipt comparison on screen]\nThe first trick sounds boring: I shop with a list. But the list isn't the trick.\nThe trick is I write it after checking what's already in my fridge. That alone killed $80 of duplicate buys.\nSecond: I stopped buying pre-cut anything. Same carrots, triple the price.\nBut the biggest drop came from one rule I almost didn't try.\nI never shop more than once a week. Every extra trip cost me about $40 in 'while I'm here' items.\n$290 a month back. That's a flight every quarter.\nComment your monthly grocery bill and I'll tell you where it's leaking."
+    },
+    {
+      "id": "history-ok",
+      "source": "synthetic",
+      "band": "ok",
+      "platform": "tiktok",
+      "niche": "history facts",
+      "script": "Did you know that Napoleon wasn't actually short?\nHe was about 5 foot 7, which was average for a Frenchman at the time.\nThe myth started partly because French inches were longer than English inches.\nSo when the British read 5 foot 2, they thought he was tiny.\nAlso, British cartoonists loved drawing him as a little angry man.\nAnd his nickname, le petit caporal, was actually a term of affection, not about height.\nSo Napoleon was completely normal height.\nFollow for more history facts."
+    },
+    {
+      "id": "history-strong",
+      "source": "synthetic",
+      "band": "strong",
+      "platform": "tiktok",
+      "niche": "history facts",
+      "script": "Napoleon was taller than the average Frenchman. So why do we all think he was tiny?\nBlame a unit conversion.\nHis height was recorded as 5 foot 2 - in French inches, which were longer than English ones.\nConverted, that's about 5 foot 7. Perfectly average.\nBut the British didn't convert it. They just read '5 foot 2' and ran with it.\nAnd their cartoonists made it stick: every newspaper drew him as a tiny man throwing tantrums.\nHere's the part that stings: even his nickname helped the lie.\nLe petit caporal - 'the little corporal' - was what his soldiers called him out of love.\nOne rounding error and a few cartoons, and he's been short for 200 years."
+    },
+    {
+      "id": "fitness-weak",
+      "source": "synthetic",
+      "band": "weak",
+      "platform": "instagram_reels",
+      "niche": "fitness",
+      "script": "So in this video I'm going to be talking about protein.\nProtein is a macronutrient that is super important for your body and it does a lot of things.\nBasically what protein does is it helps with muscle protein synthesis which is the process of building muscle, and also it has other functions as well that are important.\nThe recommended amount varies depending on a lot of different factors like your weight and your activity level and your goals and other things.\nSo it's really important to get enough protein.\nIt's super important.\nSo make sure you're getting enough protein every day.\nThanks for watching."
+    },
+    {
+      "id": "fitness-ok",
+      "source": "synthetic",
+      "band": "ok",
+      "platform": "instagram_reels",
+      "niche": "fitness",
+      "script": "Three mistakes that are killing your gains.\nNumber one: not eating enough protein. Aim for about 1.6 grams per kilo of body weight.\nNumber two: skipping sleep. Your muscles grow when you rest, not when you train.\nNumber three: changing your program every week. Stick with one plan for at least 8 weeks.\nFix these and you'll see results.\nSave this for your next gym session."
+    },
+    {
+      "id": "tech-strong",
+      "source": "synthetic",
+      "band": "strong",
+      "platform": "youtube_shorts",
+      "niche": "tech tips",
+      "script": "Your phone is lying to you about its battery.\n[close-up of battery at 1%]\nThat 1% isn't 1%. Manufacturers keep a hidden reserve so the phone can shut down safely.\nWhich is why it sometimes hangs on 1% for ten minutes.\nBut the reserve isn't the real problem.\nThe real problem is you charging to 100% every night.\nLithium batteries wear fastest when they sit full. Keep yours between 20 and 80 and it ages noticeably slower.\nBoth iPhone and most Androids have a setting that does this for you. It's called optimized or adaptive charging.\nTurn it on tonight. Your battery in two years will thank you."
+    },
+    {
+      "id": "cooking-weak-ending",
+      "source": "synthetic",
+      "band": "ok",
+      "platform": "tiktok",
+      "niche": "cooking",
+      "script": "Stop throwing out your stale bread. It's about to become the best thing you cook this week.\n[bread thrown on a cutting board]\nCut it into cubes, toss with olive oil, salt and garlic.\nBake at 200 degrees for 12 minutes.\nYou can also use it for bread pudding, or breadcrumbs, or French toast, or panzanella, which is an Italian salad.\nThere are honestly so many things you can do with stale bread.\nI also sometimes freeze bread, that works too.\nAnyway, yeah."
+    }
+  ]
+}

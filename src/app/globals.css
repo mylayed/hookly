@@ -1,0 +1,223 @@
+@import "tailwindcss";
+
+/* Palette: cool paper + ink, one cobalt accent for actions and selection.
+   Risk colors are semantic only (the drop-off map), never decoration. */
+:root {
+  --paper: #eceef2;
+  --surface: #ffffff;
+  --surface-2: #f5f6f8;
+  --ink: #14161d;
+  --muted: #565c6b;
+  --faint: #8a90a0;
+  --line: #d8dbe2;
+  --accent: #2a3ecf;
+  --accent-ink: #ffffff;
+  --accent-soft: #e3e7fd;
+  --low: #13875a;
+  --low-soft: #dcf2e8;
+  --mid: #a86704;
+  --mid-soft: #fbecc9;
+  --high: #c5362d;
+  --high-soft: #fbdfdc;
+  --shadow: 0 1px 2px rgb(20 22 29 / 0.05), 0 8px 24px -12px rgb(20 22 29 / 0.14);
+  --shadow-menu-v: 0 2px 4px rgb(20 22 29 / 0.04), 0 16px 40px -12px rgb(20 22 29 / 0.22);
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #0d0f13;
+    --surface: #15181e;
+    --surface-2: #1b1f26;
+    --ink: #e8eaf0;
+    --muted: #a2a8b6;
+    --faint: #717888;
+    --line: #2a2e38;
+    --accent: #8b97ff;
+    --accent-ink: #0d0f13;
+    --accent-soft: #232a52;
+    --low: #45c992;
+    --low-soft: #11382a;
+    --mid: #eaae45;
+    --mid-soft: #3d2c0c;
+    --high: #f2726a;
+    --high-soft: #44191a;
+    --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 12px 32px -16px rgb(0 0 0 / 0.6);
+    --shadow-menu-v: 0 2px 6px rgb(0 0 0 / 0.35), 0 20px 48px -12px rgb(0 0 0 / 0.75);
+    color-scheme: dark;
+  }
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-soft: var(--accent-soft);
+  --color-low: var(--low);
+  --color-low-soft: var(--low-soft);
+  --color-mid: var(--mid);
+  --color-mid-soft: var(--mid-soft);
+  --color-high: var(--high);
+  --color-high-soft: var(--high-soft);
+  --font-sans: var(--font-onest);
+  --font-display: var(--font-unbounded);
+  --font-mono: var(--font-jetbrains);
+  --shadow-panel: var(--shadow);
+  --shadow-menu: var(--shadow-menu-v);
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html {
+  background: var(--paper);
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-onest), ui-sans-serif, system-ui, sans-serif;
+  font-feature-settings: "ss01";
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--ink);
+}
+
+/* No ring on mouse clicks; keyboard users still get one (:focus-visible).
+   Text fields show focus through their own border, so they never get a ring.
+   Kept in the base layer so utilities like focus:outline-none can override it. */
+@layer base {
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+
+  input:not([type="radio"], [type="checkbox"]):focus-visible,
+  textarea:focus-visible {
+    outline: none;
+  }
+
+  /* Tailwind's preflight resets buttons to the default arrow. */
+  button,
+  [role="button"],
+  [role="option"],
+  summary,
+  select,
+  label:has(> input[type="radio"]),
+  label:has(> input[type="checkbox"]) {
+    cursor: pointer;
+  }
+
+  button:disabled,
+  [aria-disabled="true"] {
+    cursor: not-allowed;
+  }
+}
+
+textarea {
+  caret-color: var(--accent);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* The one authored moment: results settle in when an analysis lands. */
+@keyframes settle {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+    filter: blur(3px);
+  }
+}
+
+.settle {
+  animation: settle 420ms var(--ease-out-quint) both;
+  animation-delay: calc(var(--i, 0) * 60ms);
+}
+
+@keyframes grow {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+.bar-in {
+  transform-origin: left;
+  animation: grow 640ms var(--ease-out-quint) both;
+  animation-delay: calc(var(--i, 0) * 25ms);
+}
+
+/* Language menu drops in from the trigger's corner. */
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.97);
+  }
+}
+
+.lang-menu {
+  transform-origin: top right;
+  animation: menu-in 160ms var(--ease-out-quint) both;
+}
+
+/* History slides in from the right edge. */
+@keyframes drawer-in {
+  from {
+    transform: translateX(24px);
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+.drawer {
+  animation: drawer-in 240ms var(--ease-out-quint) both;
+}
+
+.drawer-scrim {
+  animation: fade-in 200ms ease-out both;
+}
+
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+}
+
+.dialog {
+  animation: dialog-in 220ms var(--ease-out-quint) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drawer,
+  .drawer-scrim,
+  .dialog,
+  .lang-menu,
+  .settle,
+  .bar-in {
+    animation: none;
+  }
+}

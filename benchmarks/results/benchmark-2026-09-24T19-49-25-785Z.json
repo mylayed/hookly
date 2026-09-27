@@ -1,0 +1,185 @@
+{
+  "passed": 7,
+  "total": 8,
+  "correct": 21,
+  "pairs": 21,
+  "cost": 0.2010665,
+  "results": [
+    {
+      "id": "groceries-weak",
+      "band": "weak",
+      "total": 21,
+      "scores": {
+        "hook": 1,
+        "clarity": 3,
+        "pacing": 2,
+        "curiosity": 2,
+        "payoff": 2
+      },
+      "inBand": true,
+      "cost": 0.0296225,
+      "usage": {
+        "model": "claude-sonnet-5",
+        "inputTokens": 380,
+        "outputTokens": 1627,
+        "cacheReadTokens": 0,
+        "cacheWriteTokens": 5037,
+        "costUsd": 0.0296225
+      }
+    },
+    {
+      "id": "groceries-strong",
+      "band": "strong",
+      "total": 100,
+      "scores": {
+        "hook": 5,
+        "clarity": 5,
+        "pacing": 5,
+        "curiosity": 5,
+        "payoff": 5
+      },
+      "inBand": true,
+      "cost": 0.0273405,
+      "usage": {
+        "model": "claude-sonnet-5",
+        "inputTokens": 539,
+        "outputTokens": 1367,
+        "cacheReadTokens": 0,
+        "cacheWriteTokens": 5037,
+        "costUsd": 0.0273405
+      }
+    },
+    {
+      "id": "history-ok",
+      "band": "ok",
+      "total": 71,
+      "scores": {
+        "hook": 4,
+        "clarity": 5,
+        "pacing": 3,
+        "curiosity": 4,
+        "payoff": 3
+      },
+      "inBand": false,
+      "cost": 0.0439325,
+      "usage": {
+        "model": "claude-sonnet-5",
+        "inputTokens": 360,
+        "outputTokens": 3062,
+        "cacheReadTokens": 0,
+        "cacheWriteTokens": 5037,
+        "costUsd": 0.0439325
+      }
+    },
+    {
+      "id": "history-strong",
+      "band": "strong",
+      "total": 94,
+      "scores": {
+        "hook": 5,
+        "clarity": 5,
+        "pacing": 5,
+        "curiosity": 4,
+        "payoff": 5
+      },
+      "inBand": true,
+      "cost": 0.0172694,
+      "usage": {
+        "model": "claude-sonnet-5",
+        "inputTokens": 501,
+        "outputTokens": 1526,
+        "cacheReadTokens": 5037,
+        "cacheWriteTokens": 0,
+        "costUsd": 0.0172694
+      }
+    },
+    {
+      "id": "fitness-weak",
+      "band": "weak",
+      "total": 4,
+      "scores": {
+        "hook": 1,
+        "clarity": 2,
+        "pacing": 1,
+        "curiosity": 1,
+        "payoff": 1
+      },
+      "inBand": true,
+      "cost": 0.018849400000000002,
+      "usage": {
+        "model": "claude-sonnet-5",
+        "inputTokens": 371,
+        "outputTokens": 1710,
+        "cacheReadTokens": 5037,
+        "cacheWriteTokens": 0,
+        "costUsd": 0.018849400000000002
+      }
+    },
+    {
+      "id": "fitness-ok",
+      "band": "ok",
+      "total": 69,
+      "scores": {
+        "hook": 4,
+        "clarity": 4,
+        "pacing": 4,
+        "curiosity": 3,
+        "payoff": 4
+      },
+      "inBand": true,
+      "cost": 0.016459400000000003,
+      "usage": {
+        "model": "claude-sonnet-5",
+        "inputTokens": 351,
+        "outputTokens": 1475,
+        "cacheReadTokens": 5037,
+        "cacheWriteTokens": 0,
+        "costUsd": 0.016459400000000003
+      }
+    },
+    {
+      "id": "tech-strong",
+      "band": "strong",
+      "total": 75,
+      "scores": {
+        "hook": 4,
+        "clarity": 4,
+        "pacing": 4,
+        "curiosity": 4,
+        "payoff": 4
+      },
+      "inBand": true,
+      "cost": 0.0173254,
+      "usage": {
+        "model": "claude-sonnet-5",
+        "inputTokens": 509,
+        "outputTokens": 1530,
+        "cacheReadTokens": 5037,
+        "cacheWriteTokens": 0,
+        "costUsd": 0.0173254
+      }
+    },
+    {
+      "id": "cooking-weak-ending",
+      "band": "ok",
+      "total": 36,
+      "scores": {
+        "hook": 3,
+        "clarity": 4,
+        "pacing": 2,
+        "curiosity": 2,
+        "payoff": 1
+      },
+      "inBand": true,
+      "cost": 0.0302674,
+      "usage": {
+        "model": "claude-sonnet-5",
+        "inputTokens": 390,
+        "outputTokens": 2848,
+        "cacheReadTokens": 5037,
+        "cacheWriteTokens": 0,
+        "costUsd": 0.0302674
+      }
+    }
+  ]
+}

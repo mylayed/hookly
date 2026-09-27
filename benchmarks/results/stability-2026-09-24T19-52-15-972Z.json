@@ -1,0 +1,585 @@
+{
+  "runs": 3,
+  "maxRange": 12,
+  "meanSd": 2.6699962761504152,
+  "meanAgree": 0.72933836996337,
+  "cost": 0.5059436,
+  "report": [
+    {
+      "id": "groceries-weak",
+      "totals": [
+        21,
+        15,
+        11
+      ],
+      "total": {
+        "values": [
+          21,
+          15,
+          11
+        ],
+        "mean": 15.666666666666666,
+        "sd": 4.109609335312651,
+        "range": 10
+      },
+      "criteria": {
+        "hook": {
+          "values": [
+            1,
+            1,
+            1
+          ],
+          "mean": 1,
+          "sd": 0,
+          "range": 0
+        },
+        "clarity": {
+          "values": [
+            4,
+            3,
+            3
+          ],
+          "mean": 3.3333333333333335,
+          "sd": 0.4714045207910317,
+          "range": 1
+        },
+        "pacing": {
+          "values": [
+            2,
+            2,
+            2
+          ],
+          "mean": 2,
+          "sd": 0,
+          "range": 0
+        },
+        "curiosity": {
+          "values": [
+            2,
+            1,
+            1
+          ],
+          "mean": 1.3333333333333333,
+          "sd": 0.4714045207910317,
+          "range": 1
+        },
+        "payoff": {
+          "values": [
+            1,
+            2,
+            1
+          ],
+          "mean": 1.3333333333333333,
+          "sd": 0.4714045207910317,
+          "range": 1
+        }
+      },
+      "beatAgreement": 0.7777777777777778,
+      "cost": 0.057262200000000006
+    },
+    {
+      "id": "groceries-strong",
+      "totals": [
+        96,
+        100,
+        96
+      ],
+      "total": {
+        "values": [
+          96,
+          100,
+          96
+        ],
+        "mean": 97.33333333333333,
+        "sd": 1.8856180831641267,
+        "range": 4
+      },
+      "criteria": {
+        "hook": {
+          "values": [
+            5,
+            5,
+            5
+          ],
+          "mean": 5,
+          "sd": 0,
+          "range": 0
+        },
+        "clarity": {
+          "values": [
+            4,
+            5,
+            5
+          ],
+          "mean": 4.666666666666667,
+          "sd": 0.4714045207910317,
+          "range": 1
+        },
+        "pacing": {
+          "values": [
+            5,
+            5,
+            4
+          ],
+          "mean": 4.666666666666667,
+          "sd": 0.4714045207910317,
+          "range": 1
+        },
+        "curiosity": {
+          "values": [
+            5,
+            5,
+            5
+          ],
+          "mean": 5,
+          "sd": 0,
+          "range": 0
+        },
+        "payoff": {
+          "values": [
+            5,
+            5,
+            5
+          ],
+          "mean": 5,
+          "sd": 0,
+          "range": 0
+        }
+      },
+      "beatAgreement": 0.8571428571428571,
+      "cost": 0.0485062
+    },
+    {
+      "id": "history-ok",
+      "totals": [
+        71,
+        59,
+        71
+      ],
+      "total": {
+        "values": [
+          71,
+          59,
+          71
+        ],
+        "mean": 67,
+        "sd": 5.656854249492381,
+        "range": 12
+      },
+      "criteria": {
+        "hook": {
+          "values": [
+            4,
+            4,
+            4
+          ],
+          "mean": 4,
+          "sd": 0,
+          "range": 0
+        },
+        "clarity": {
+          "values": [
+            4,
+            4,
+            4
+          ],
+          "mean": 4,
+          "sd": 0,
+          "range": 0
+        },
+        "pacing": {
+          "values": [
+            4,
+            4,
+            4
+          ],
+          "mean": 4,
+          "sd": 0,
+          "range": 0
+        },
+        "curiosity": {
+          "values": [
+            4,
+            2,
+            4
+          ],
+          "mean": 3.3333333333333335,
+          "sd": 0.9428090415820634,
+          "range": 2
+        },
+        "payoff": {
+          "values": [
+            3,
+            3,
+            3
+          ],
+          "mean": 3,
+          "sd": 0,
+          "range": 0
+        }
+      },
+      "beatAgreement": 0.25,
+      "cost": 0.07966220000000002
+    },
+    {
+      "id": "history-strong",
+      "totals": [
+        93,
+        96,
+        96
+      ],
+      "total": {
+        "values": [
+          93,
+          96,
+          96
+        ],
+        "mean": 95,
+        "sd": 1.4142135623730951,
+        "range": 3
+      },
+      "criteria": {
+        "hook": {
+          "values": [
+            5,
+            5,
+            5
+          ],
+          "mean": 5,
+          "sd": 0,
+          "range": 0
+        },
+        "clarity": {
+          "values": [
+            4,
+            4,
+            4
+          ],
+          "mean": 4,
+          "sd": 0,
+          "range": 0
+        },
+        "pacing": {
+          "values": [
+            5,
+            5,
+            5
+          ],
+          "mean": 5,
+          "sd": 0,
+          "range": 0
+        },
+        "curiosity": {
+          "values": [
+            5,
+            5,
+            5
+          ],
+          "mean": 5,
+          "sd": 0,
+          "range": 0
+        },
+        "payoff": {
+          "values": [
+            4,
+            5,
+            5
+          ],
+          "mean": 4.666666666666667,
+          "sd": 0.4714045207910317,
+          "range": 1
+        }
+      },
+      "beatAgreement": 0.75,
+      "cost": 0.0470382
+    },
+    {
+      "id": "fitness-weak",
+      "totals": [
+        4,
+        4,
+        4
+      ],
+      "total": {
+        "values": [
+          4,
+          4,
+          4
+        ],
+        "mean": 4,
+        "sd": 0,
+        "range": 0
+      },
+      "criteria": {
+        "hook": {
+          "values": [
+            1,
+            1,
+            1
+          ],
+          "mean": 1,
+          "sd": 0,
+          "range": 0
+        },
+        "clarity": {
+          "values": [
+            2,
+            2,
+            2
+          ],
+          "mean": 2,
+          "sd": 0,
+          "range": 0
+        },
+        "pacing": {
+          "values": [
+            1,
+            1,
+            1
+          ],
+          "mean": 1,
+          "sd": 0,
+          "range": 0
+        },
+        "curiosity": {
+          "values": [
+            1,
+            1,
+            1
+          ],
+          "mean": 1,
+          "sd": 0,
+          "range": 0
+        },
+        "payoff": {
+          "values": [
+            1,
+            1,
+            1
+          ],
+          "mean": 1,
+          "sd": 0,
+          "range": 0
+        }
+      },
+      "beatAgreement": 0.875,
+      "cost": 0.0534582
+    },
+    {
+      "id": "fitness-ok",
+      "totals": [
+        69,
+        73,
+        65
+      ],
+      "total": {
+        "values": [
+          69,
+          73,
+          65
+        ],
+        "mean": 69,
+        "sd": 3.265986323710904,
+        "range": 8
+      },
+      "criteria": {
+        "hook": {
+          "values": [
+            4,
+            4,
+            4
+          ],
+          "mean": 4,
+          "sd": 0,
+          "range": 0
+        },
+        "clarity": {
+          "values": [
+            4,
+            5,
+            4
+          ],
+          "mean": 4.333333333333333,
+          "sd": 0.4714045207910317,
+          "range": 1
+        },
+        "pacing": {
+          "values": [
+            5,
+            4,
+            4
+          ],
+          "mean": 4.333333333333333,
+          "sd": 0.4714045207910317,
+          "range": 1
+        },
+        "curiosity": {
+          "values": [
+            3,
+            3,
+            3
+          ],
+          "mean": 3,
+          "sd": 0,
+          "range": 0
+        },
+        "payoff": {
+          "values": [
+            3,
+            4,
+            3
+          ],
+          "mean": 3.3333333333333335,
+          "sd": 0.4714045207910317,
+          "range": 1
+        }
+      },
+      "beatAgreement": 0.7777777777777778,
+      "cost": 0.0837982
+    },
+    {
+      "id": "tech-strong",
+      "totals": [
+        89,
+        85,
+        90
+      ],
+      "total": {
+        "values": [
+          89,
+          85,
+          90
+        ],
+        "mean": 88,
+        "sd": 2.160246899469287,
+        "range": 5
+      },
+      "criteria": {
+        "hook": {
+          "values": [
+            4,
+            4,
+            5
+          ],
+          "mean": 4.333333333333333,
+          "sd": 0.4714045207910317,
+          "range": 1
+        },
+        "clarity": {
+          "values": [
+            4,
+            4,
+            4
+          ],
+          "mean": 4,
+          "sd": 0,
+          "range": 0
+        },
+        "pacing": {
+          "values": [
+            5,
+            5,
+            5
+          ],
+          "mean": 5,
+          "sd": 0,
+          "range": 0
+        },
+        "curiosity": {
+          "values": [
+            5,
+            5,
+            4
+          ],
+          "mean": 4.666666666666667,
+          "sd": 0.4714045207910317,
+          "range": 1
+        },
+        "payoff": {
+          "values": [
+            5,
+            4,
+            5
+          ],
+          "mean": 4.666666666666667,
+          "sd": 0.4714045207910317,
+          "range": 1
+        }
+      },
+      "beatAgreement": 0.7692307692307693,
+      "cost": 0.05044620000000001
+    },
+    {
+      "id": "cooking-weak-ending",
+      "totals": [
+        32,
+        36,
+        39
+      ],
+      "total": {
+        "values": [
+          32,
+          36,
+          39
+        ],
+        "mean": 35.666666666666664,
+        "sd": 2.8674417556808756,
+        "range": 7
+      },
+      "criteria": {
+        "hook": {
+          "values": [
+            3,
+            3,
+            3
+          ],
+          "mean": 3,
+          "sd": 0,
+          "range": 0
+        },
+        "clarity": {
+          "values": [
+            3,
+            4,
+            3
+          ],
+          "mean": 3.3333333333333335,
+          "sd": 0.4714045207910317,
+          "range": 1
+        },
+        "pacing": {
+          "values": [
+            2,
+            2,
+            2
+          ],
+          "mean": 2,
+          "sd": 0,
+          "range": 0
+        },
+        "curiosity": {
+          "values": [
+            2,
+            2,
+            3
+          ],
+          "mean": 2.3333333333333335,
+          "sd": 0.4714045207910317,
+          "range": 1
+        },
+        "payoff": {
+          "values": [
+            1,
+            1,
+            1
+          ],
+          "mean": 1,
+          "sd": 0,
+          "range": 0
+        }
+      },
+      "beatAgreement": 0.7777777777777778,
+      "cost": 0.08577219999999999
+    }
+  ]
+}

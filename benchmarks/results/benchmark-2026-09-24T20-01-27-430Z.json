@@ -1,0 +1,185 @@
+{
+  "passed": 8,
+  "total": 8,
+  "correct": 21,
+  "pairs": 21,
+  "cost": 0.1894615,
+  "results": [
+    {
+      "id": "groceries-weak",
+      "band": "weak",
+      "total": 11,
+      "scores": {
+        "hook": 1,
+        "clarity": 3,
+        "pacing": 2,
+        "curiosity": 1,
+        "payoff": 1
+      },
+      "inBand": true,
+      "cost": 0.0301475,
+      "usage": {
+        "model": "claude-sonnet-5",
+        "inputTokens": 380,
+        "outputTokens": 1637,
+        "cacheReadTokens": 0,
+        "cacheWriteTokens": 5207,
+        "costUsd": 0.0301475
+      }
+    },
+    {
+      "id": "groceries-strong",
+      "band": "strong",
+      "total": 96,
+      "scores": {
+        "hook": 5,
+        "clarity": 5,
+        "pacing": 4,
+        "curiosity": 5,
+        "payoff": 5
+      },
+      "inBand": true,
+      "cost": 0.0274155,
+      "usage": {
+        "model": "claude-sonnet-5",
+        "inputTokens": 539,
+        "outputTokens": 1332,
+        "cacheReadTokens": 0,
+        "cacheWriteTokens": 5207,
+        "costUsd": 0.0274155
+      }
+    },
+    {
+      "id": "history-ok",
+      "band": "ok",
+      "total": 65,
+      "scores": {
+        "hook": 4,
+        "clarity": 4,
+        "pacing": 4,
+        "curiosity": 3,
+        "payoff": 3
+      },
+      "inBand": true,
+      "cost": 0.0398275,
+      "usage": {
+        "model": "claude-sonnet-5",
+        "inputTokens": 360,
+        "outputTokens": 2609,
+        "cacheReadTokens": 0,
+        "cacheWriteTokens": 5207,
+        "costUsd": 0.0398275
+      }
+    },
+    {
+      "id": "history-strong",
+      "band": "strong",
+      "total": 96,
+      "scores": {
+        "hook": 5,
+        "clarity": 5,
+        "pacing": 5,
+        "curiosity": 5,
+        "payoff": 4
+      },
+      "inBand": true,
+      "cost": 0.0150234,
+      "usage": {
+        "model": "claude-sonnet-5",
+        "inputTokens": 501,
+        "outputTokens": 1298,
+        "cacheReadTokens": 5207,
+        "cacheWriteTokens": 0,
+        "costUsd": 0.0150234
+      }
+    },
+    {
+      "id": "fitness-weak",
+      "band": "weak",
+      "total": 4,
+      "scores": {
+        "hook": 1,
+        "clarity": 2,
+        "pacing": 1,
+        "curiosity": 1,
+        "payoff": 1
+      },
+      "inBand": true,
+      "cost": 0.018083400000000003,
+      "usage": {
+        "model": "claude-sonnet-5",
+        "inputTokens": 371,
+        "outputTokens": 1630,
+        "cacheReadTokens": 5207,
+        "cacheWriteTokens": 0,
+        "costUsd": 0.018083400000000003
+      }
+    },
+    {
+      "id": "fitness-ok",
+      "band": "ok",
+      "total": 69,
+      "scores": {
+        "hook": 4,
+        "clarity": 5,
+        "pacing": 4,
+        "curiosity": 3,
+        "payoff": 3
+      },
+      "inBand": true,
+      "cost": 0.014693399999999999,
+      "usage": {
+        "model": "claude-sonnet-5",
+        "inputTokens": 351,
+        "outputTokens": 1295,
+        "cacheReadTokens": 5207,
+        "cacheWriteTokens": 0,
+        "costUsd": 0.014693399999999999
+      }
+    },
+    {
+      "id": "tech-strong",
+      "band": "strong",
+      "total": 100,
+      "scores": {
+        "hook": 5,
+        "clarity": 5,
+        "pacing": 5,
+        "curiosity": 5,
+        "payoff": 5
+      },
+      "inBand": true,
+      "cost": 0.0143894,
+      "usage": {
+        "model": "claude-sonnet-5",
+        "inputTokens": 509,
+        "outputTokens": 1233,
+        "cacheReadTokens": 5207,
+        "cacheWriteTokens": 0,
+        "costUsd": 0.0143894
+      }
+    },
+    {
+      "id": "cooking-weak-ending",
+      "band": "ok",
+      "total": 36,
+      "scores": {
+        "hook": 3,
+        "clarity": 4,
+        "pacing": 2,
+        "curiosity": 2,
+        "payoff": 1
+      },
+      "inBand": true,
+      "cost": 0.029881400000000002,
+      "usage": {
+        "model": "claude-sonnet-5",
+        "inputTokens": 390,
+        "outputTokens": 2806,
+        "cacheReadTokens": 5207,
+        "cacheWriteTokens": 0,
+        "costUsd": 0.029881400000000002
+      }
+    }
+  ]
+}
