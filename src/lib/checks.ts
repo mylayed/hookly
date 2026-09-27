@@ -1,6 +1,6 @@
 import "server-only";
 import type { SupabaseClient } from "@supabase/supabase-js";
-import type { Analysis, Hook, Rewrite } from "./analyzer/analyze";
+import type { Analysis, Hook, VerifiedRewrite } from "./analyzer/analyze";
 import type { Pace, Platform } from "./analyzer/config";
 import { HttpError } from "./api";
 import type { Locale } from "./i18n/locales";
@@ -10,7 +10,12 @@ import { adminClient } from "./supabase";
 // scopes them to their own rows); writes go through the admin client.
 
 export type AnalysisView = Omit<Analysis, "usage">;
-export type RewriteView = Omit<Rewrite, "usage">;
+// `after` and `locale` are missing on rewrites saved before the re-check existed.
+export type RewriteView = Omit<VerifiedRewrite, "usage" | "after"> & {
+  after?: AnalysisView | null;
+  // Language the rewrite notes and its re-check were written in.
+  locale?: Locale;
+};
 
 export interface CheckDraft {
   script: string;

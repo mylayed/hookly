@@ -125,12 +125,15 @@ export const pl: Messages = {
     subtitle: (n: number) =>
       `Poprawia ${p(n, "# oznaczoną linijkę", "# oznaczone linijki", "# oznaczonych linijek")} w Twoim stylu. Reszta zostaje bez zmian.`,
     rewrite: "Przepisz",
-    rewriting: "Przepisujemy...",
+    rewriting: "Przepisujemy i sprawdzamy...",
     keptVoice: "Zachowany Twój styl:",
     line: (n: number) => `Linijka ${n}`,
     cut: "Usuń tę linijkę",
     apply: "Zastosuj w scenariuszu",
     copyAll: "Kopiuj cały scenariusz",
+    checked: (from: number, to: number) => `Nowa wersja sprawdzona: ${from} → ${to}.`,
+    worse: (from: number, to: number) =>
+      `Nowa wersja sprawdzona: ${from} → ${to}. Wypada słabiej niż Twoja, więc lepiej zostaw swój scenariusz albo skopiuj tylko wybrane linijki.`,
   },
   workspace: {
     hookApplied: "Dodano nowe otwarcie. Sprawdź scenariusz ponownie, aby zobaczyć nową ocenę.",

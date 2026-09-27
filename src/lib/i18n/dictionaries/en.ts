@@ -124,12 +124,15 @@ export const en = {
     subtitle: (n: number) =>
       `Fixes the ${p(n, "flagged line", "# flagged lines")} in your voice. Everything else stays as written.`,
     rewrite: "Rewrite",
-    rewriting: "Rewriting...",
+    rewriting: "Rewriting and re-checking...",
     keptVoice: "Kept your voice:",
     line: (n: number) => `Line ${n}`,
     cut: "Cut this line",
     apply: "Apply to script",
     copyAll: "Copy full script",
+    checked: (from: number, to: number) => `Re-checked: ${from} → ${to}.`,
+    worse: (from: number, to: number) =>
+      `Re-checked: ${from} → ${to}. This version scores lower than yours, so keep your script or copy only the lines you like.`,
   },
   workspace: {
     hookApplied: "New opening added. Check the script again to see the new score.",

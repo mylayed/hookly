@@ -153,6 +153,8 @@ export function Workspace() {
       const { id, analysis: result } = await post<{ id: string; analysis: AnalysisView }>("/api/analyze", {
         ...snapshot,
         locale,
+        // Anchors the re-check to the check on screen, so only the edits move the score.
+        baseCheckId: checkId ?? undefined,
       });
       setCheckId(id);
       openCheck(id);
@@ -205,10 +207,31 @@ export function Workspace() {
     setNotice("hookApplied");
   }
 
-  function applyRewrite(script: string) {
-    update({ ...draft, script });
-    setMode("edit");
-    setNotice("rewriteApplied");
+  async function applyRewrite(data: RewriteView) {
+    if (!data.after || !checkId) {
+      update({ ...draft, script: data.script });
+      setMode("edit");
+      setNotice("rewriteApplied");
+      return;
+    }
+    // The rewrite was already re-checked: open that result as a new check.
+    try {
+      const { id, draft: next } = await post<{ id: string; draft: Draft }>("/api/rewrite/apply", { checkId, locale });
+      update(next);
+      setCheckId(id);
+      openCheck(id);
+      setAnalysis(data.after);
+      setChecked(next);
+      setFeedbackLocale(data.locale ?? locale);
+      setHooks({ status: "idle" });
+      setRewrite({ status: "idle" });
+      setSelected(null);
+      setError(null);
+      setNotice(null);
+      setMode("review");
+    } catch (e) {
+      setError(e);
+    }
   }
 
   const stale = checked !== null && (checked.script !== draft.script || checked.platform !== draft.platform || checked.pace !== draft.pace);
@@ -287,7 +310,13 @@ export function Workspace() {
         {analysis && !loading && (
           <div className="overflow-hidden rounded-2xl bg-surface shadow-panel">
             <HooksSection state={hooks} onGenerate={writeHooks} onUse={applyHook} />
-            <RewriteSection state={rewrite} weakCount={weakCount} onGenerate={writeRewrite} onApply={applyRewrite} />
+            <RewriteSection
+              state={rewrite}
+              weakCount={weakCount}
+              scoreBefore={analysis.total}
+              onGenerate={writeRewrite}
+              onApply={applyRewrite}
+            />
           </div>
         )}
       </div>

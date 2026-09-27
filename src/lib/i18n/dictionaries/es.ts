@@ -125,12 +125,15 @@ export const es: Messages = {
     subtitle: (n: number) =>
       `Corrige ${p(n, "la línea marcada", "las # líneas marcadas")} con tu propio estilo. Todo lo demás queda igual.`,
     rewrite: "Reescribir",
-    rewriting: "Reescribiendo...",
+    rewriting: "Reescribiendo y revisando...",
     keptVoice: "Se mantuvo tu estilo:",
     line: (n: number) => `Línea ${n}`,
     cut: "Eliminar esta línea",
     apply: "Aplicar al guion",
     copyAll: "Copiar guion completo",
+    checked: (from: number, to: number) => `Revisado de nuevo: ${from} → ${to}.`,
+    worse: (from: number, to: number) =>
+      `Revisado de nuevo: ${from} → ${to}. Esta versión puntúa peor que la tuya, así que mejor quédate con tu guion o copia solo las líneas que te gusten.`,
   },
   workspace: {
     hookApplied: "Nueva apertura añadida. Revisa el guion otra vez para ver la nueva puntuación.",

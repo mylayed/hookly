@@ -143,15 +143,19 @@ export function HooksSection({
 export function RewriteSection({
   state,
   weakCount,
+  scoreBefore,
   onGenerate,
   onApply,
 }: {
   state: Async<RewriteView>;
   weakCount: number;
+  scoreBefore: number;
   onGenerate: () => void;
-  onApply: (script: string) => void;
+  onApply: (rewrite: RewriteView) => void;
 }) {
   const { m } = useI18n();
+  const after = state.status === "done" ? state.data.after : null;
+  const worse = after != null && after.total < scoreBefore;
   return (
     <section className="border-t border-line px-6 py-5" aria-labelledby="rewrite-heading">
       <div className="flex items-center justify-between gap-4">
@@ -195,11 +199,20 @@ export function RewriteSection({
               </li>
             ))}
           </ul>
+          {after && (
+            <p className={`mt-3 text-sm leading-relaxed ${worse ? "text-high" : "text-low"}`} role="status">
+              {worse ? m.rewrite.worse(scoreBefore, after.total) : m.rewrite.checked(scoreBefore, after.total)}
+            </p>
+          )}
           <div className="mt-3 flex flex-wrap items-center gap-2">
             <button
               type="button"
-              onClick={() => onApply(state.data.script)}
-              className="inline-flex h-10 items-center gap-2 rounded-xl bg-accent px-4 text-sm font-medium text-accent-ink transition-transform duration-150 active:scale-[0.98]"
+              onClick={() => onApply(state.data)}
+              className={
+                worse
+                  ? "inline-flex h-10 items-center gap-2 rounded-xl border border-line px-4 text-sm font-medium transition-[transform,background-color] duration-150 hover:bg-surface-2 active:scale-[0.98]"
+                  : "inline-flex h-10 items-center gap-2 rounded-xl bg-accent px-4 text-sm font-medium text-accent-ink transition-transform duration-150 active:scale-[0.98]"
+              }
             >
               <Check size={17} weight="bold" aria-hidden />
               {m.rewrite.apply}

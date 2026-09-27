@@ -125,12 +125,15 @@ export const fr: Messages = {
     subtitle: (n: number) =>
       `Corrige ${p(n, "la ligne signalée", "les # lignes signalées")} dans votre style. Le reste ne change pas.`,
     rewrite: "Réécrire",
-    rewriting: "Réécriture...",
+    rewriting: "Réécriture et vérification...",
     keptVoice: "Votre style est conservé :",
     line: (n: number) => `Ligne ${n}`,
     cut: "Supprimer cette ligne",
     apply: "Appliquer au script",
     copyAll: "Copier tout le script",
+    checked: (from: number, to: number) => `Nouvelle version vérifiée : ${from} → ${to}.`,
+    worse: (from: number, to: number) =>
+      `Nouvelle version vérifiée : ${from} → ${to}. Elle obtient une note plus basse que la vôtre : gardez votre script ou copiez seulement les lignes qui vous plaisent.`,
   },
   workspace: {
     hookApplied: "Nouvelle ouverture ajoutée. Vérifiez à nouveau le script pour voir la nouvelle note.",

@@ -1,11 +1,10 @@
-import type { Analysis, Hook, Rewrite, RiskBeat } from "@/lib/analyzer/analyze";
+import type { Analysis, Hook, RiskBeat } from "@/lib/analyzer/analyze";
 import type { Pace, Platform } from "@/lib/analyzer/config";
 import type { Messages } from "@/lib/i18n";
 
 export type AnalysisView = Omit<Analysis, "usage">;
-export type RewriteView = Omit<Rewrite, "usage">;
 export type { Hook, RiskBeat };
-export type { CheckSummary, SavedCheck } from "@/lib/checks";
+export type { CheckSummary, RewriteView, SavedCheck } from "@/lib/checks";
 export type { UsageKind, UsageSummary, UsageView } from "@/lib/limits";
 export type { Plan, SubscriptionView } from "@/lib/billing";
 export type { Me } from "@/lib/auth";

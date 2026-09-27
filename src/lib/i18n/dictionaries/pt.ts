@@ -126,12 +126,15 @@ export const pt: Messages = {
     subtitle: (n: number) =>
       `Corrige ${p(n, "a linha marcada", "as # linhas marcadas")} no seu estilo. O resto continua como está.`,
     rewrite: "Reescrever",
-    rewriting: "Reescrevendo...",
+    rewriting: "Reescrevendo e analisando...",
     keptVoice: "Seu estilo foi mantido:",
     line: (n: number) => `Linha ${n}`,
     cut: "Remover esta linha",
     apply: "Aplicar ao roteiro",
     copyAll: "Copiar roteiro completo",
+    checked: (from: number, to: number) => `Nova versão analisada: ${from} → ${to}.`,
+    worse: (from: number, to: number) =>
+      `Nova versão analisada: ${from} → ${to}. Ela tem nota menor que a sua, então é melhor manter seu roteiro ou copiar só as linhas que você gostar.`,
   },
   workspace: {
     hookApplied: "Nova abertura adicionada. Analise o roteiro de novo para ver a nova nota.",

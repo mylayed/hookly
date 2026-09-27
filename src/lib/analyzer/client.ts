@@ -40,13 +40,16 @@ export async function callStructured<S extends z.ZodType>(opts: {
   system: string;
   user: string;
   schema: S;
-  // Total wall-clock time this call may spend, including the retry below.
-  // Bounds each attempt so a slow or hung request can't by itself run past
-  // the route's maxDuration (which would get the function killed before
-  // `metered` can release the usage reservation).
+  // Total wall-clock time this call may spend, including the SDK's own
+  // retries and the schema retry below. Past it the call is aborted, so it
+  // can't run into the route's maxDuration (which would get the function
+  // killed before `metered` can release the usage reservation).
   budgetMs: number;
 }): Promise<{ data: z.infer<S>; usage: CallUsage }> {
   const deadline = Date.now() + opts.budgetMs;
+  // A per-request `timeout` alone isn't enough: the SDK retries timed-out
+  // requests, each with a fresh timeout. The signal caps all attempts together.
+  const signal = AbortSignal.timeout(opts.budgetMs);
   const fallback = FALLBACK_MODELS.has(opts.model)
     ? { betas: ["server-side-fallback-2026-07-01"], fallbacks: "default" as const }
     : {};
@@ -63,7 +66,7 @@ export async function callStructured<S extends z.ZodType>(opts: {
         messages: [{ role: "user", content: opts.user }],
         ...fallback,
       },
-      { timeout },
+      { timeout, signal },
     );
 
   // The SDK throws a plain AnthropicError when the output fails schema

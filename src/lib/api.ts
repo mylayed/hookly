@@ -13,6 +13,8 @@ export const ScriptRequest = z.object({
   pace: z.enum(["calm", "normal", "fast"]).optional(),
   // UI language; the model writes all feedback in it. The script itself can be in any language.
   locale: z.enum(LOCALES).optional(),
+  // The check this script was edited from; the re-check is anchored to it.
+  baseCheckId: z.uuid().optional(),
 });
 
 // Hooks and rewrites work on a saved check: the server loads the script and

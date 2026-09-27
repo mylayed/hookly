@@ -16,14 +16,15 @@ export const EFFORT: Record<"analyze" | "hooks" | "rewrite", Effort> = {
   rewrite: (process.env.HOOKCHECK_REWRITE_EFFORT as Effort) ?? "medium",
 };
 
-// Wall-clock budget for one model call, including its schema-validation
-// retry. Kept comfortably under each route's `maxDuration` so the function
+// Wall-clock budget for one model call, including all retries. Kept comfortably under each route's `maxDuration` so the function
 // always gets to run `metered`'s catch (which releases the usage
 // reservation) instead of being killed by the platform mid-call.
 export const CALL_BUDGET_MS: Record<"analyze" | "hooks" | "rewrite", number> = {
   analyze: 100_000, // route maxDuration: 120s
   hooks: 100_000, // route maxDuration: 120s
-  rewrite: 160_000, // route maxDuration: 180s
+  // The rewrite route also re-checks the result (an analyze call), so both
+  // must fit its 300s together: 150s + 100s, plus database round trips.
+  rewrite: 150_000,
 };
 
 // USD per 1M tokens. Used only for cost reporting; update if pricing changes.

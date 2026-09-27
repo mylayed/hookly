@@ -125,12 +125,15 @@ export const de: Messages = {
     subtitle: (n: number) =>
       `Verbessert ${p(n, "die markierte Zeile", "die # markierten Zeilen")} in deinem Stil. Alles andere bleibt, wie es ist.`,
     rewrite: "Umschreiben",
-    rewriting: "Wird umgeschrieben...",
+    rewriting: "Wird umgeschrieben und geprüft...",
     keptVoice: "Dein Stil bleibt erhalten:",
     line: (n: number) => `Zeile ${n}`,
     cut: "Diese Zeile streichen",
     apply: "Ins Skript übernehmen",
     copyAll: "Ganzes Skript kopieren",
+    checked: (from: number, to: number) => `Neu geprüft: ${from} → ${to}.`,
+    worse: (from: number, to: number) =>
+      `Neu geprüft: ${from} → ${to}. Diese Version schneidet schlechter ab als deine. Behalte lieber dein Skript oder übernimm nur einzelne Zeilen.`,
   },
   workspace: {
     hookApplied: "Neuer Einstieg eingefügt. Prüfe das Skript erneut, um die neue Bewertung zu sehen.",

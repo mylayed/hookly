@@ -7,6 +7,8 @@ import {
   renderBeats,
   renderContext,
   renderLanguageRule,
+  renderPreviousReview,
+  renderWhatWorks,
   type ScriptContext,
 } from "./prompts";
 import { CRITERIA, type Criterion, type HookType, type RiskIssue } from "./rubric";
@@ -71,11 +73,42 @@ function prepare(input: ScriptInput) {
   return { beats, ctx, wordCount, durationSeconds };
 }
 
-export async function analyzeScript(input: ScriptInput): Promise<Analysis> {
+// The review of the version a script was edited from. A re-check is anchored
+// to it, so the score moves because of the edits, not because the model read
+// the untouched lines differently this time.
+export interface ReviewBase {
+  analysis: Pick<Analysis, "criteria" | "beats">;
+}
+
+const normalize = (s: string) => s.replace(/\s+/g, " ").trim();
+
+function previousReview(beats: Beat[], base: ReviewBase): string {
+  const before = new Map<string, RiskBeat>();
+  for (const b of base.analysis.beats) {
+    if (!before.has(normalize(b.text))) before.set(normalize(b.text), b);
+  }
+  const kept: { id: number; risk: string; issue: string }[] = [];
+  const changed: number[] = [];
+  const now = new Set<string>();
+  for (const b of beats) {
+    const key = normalize(b.text);
+    now.add(key);
+    const prev = before.get(key);
+    if (prev) kept.push({ id: b.id, risk: prev.risk, issue: prev.issue });
+    else changed.push(b.id);
+  }
+  // Mostly rewritten: it's a new script, review it fresh.
+  if (kept.length < beats.length / 2) return "";
+  const removed = [...before.keys()].filter((t) => !now.has(t));
+  return renderPreviousReview({ criteria: base.analysis.criteria, kept, changed, removed });
+}
+
+export async function analyzeScript(input: ScriptInput, base?: ReviewBase): Promise<Analysis> {
   const { beats, ctx, wordCount, durationSeconds } = prepare(input);
+  const anchor = base ? previousReview(beats, base) : "";
 
   const user = `${renderContext(ctx, durationSeconds)}
-
+${anchor ? `\n${anchor}\n` : ""}
 <script>
 ${renderBeats(beats)}
 </script>
@@ -177,7 +210,7 @@ export interface Rewrite {
   usage: CallUsage;
 }
 
-export type RewriteBasis = Pick<Analysis, "beats" | "hookPromise" | "durationSeconds">;
+export type RewriteBasis = Pick<Analysis, "beats" | "hookPromise" | "durationSeconds" | "criteria" | "strengths">;
 
 export async function rewriteWeakSpots(input: ScriptInput, analysis: RewriteBasis): Promise<Rewrite> {
   const { ctx } = prepare(input);
@@ -199,7 +232,9 @@ export async function rewriteWeakSpots(input: ScriptInput, analysis: RewriteBasi
   const user = `${renderContext(ctx, analysis.durationSeconds)}
 What the video promises: ${analysis.hookPromise || "(no clear promise yet)"}
 
-Beats to fix (edit only these ids):
+${renderWhatWorks(analysis.criteria, analysis.strengths)}
+
+Beats to fix (edit only these ids; leave out any you can't improve safely):
 ${problems}
 
 <script>
@@ -234,6 +269,37 @@ ${renderLanguageRule(ctx, "voice_notes and change_note")} Every "rewritten" line
     script,
     durationSeconds: estimateDuration(script, input.pace ?? "normal"),
     usage,
+  };
+}
+
+export interface VerifiedRewrite extends Rewrite {
+  // The rewritten script re-checked against the review it was made from, so
+  // the creator sees whether it actually helps before applying it. Null when
+  // nothing changed or the re-check didn't finish.
+  after: Omit<Analysis, "usage"> | null;
+}
+
+export async function rewriteAndVerify(input: ScriptInput, analysis: RewriteBasis): Promise<VerifiedRewrite> {
+  const rewrite = await rewriteWeakSpots(input, analysis);
+  if (rewrite.edits.length === 0) return { ...rewrite, after: null };
+  try {
+    const { usage, ...after } = await analyzeScript({ ...input, script: rewrite.script }, { analysis });
+    return { ...rewrite, after, usage: addUsage(rewrite.usage, usage) };
+  } catch (err) {
+    // The rewrite is already paid for; return it without the re-check.
+    console.warn("[rewrite] could not re-check the rewrite:", err);
+    return { ...rewrite, after: null };
+  }
+}
+
+function addUsage(a: CallUsage, b: CallUsage): CallUsage {
+  return {
+    model: `${a.model} + ${b.model}`,
+    inputTokens: a.inputTokens + b.inputTokens,
+    outputTokens: a.outputTokens + b.outputTokens,
+    cacheReadTokens: a.cacheReadTokens + b.cacheReadTokens,
+    cacheWriteTokens: a.cacheWriteTokens + b.cacheWriteTokens,
+    costUsd: a.costUsd + b.costUsd,
   };
 }
 
