@@ -3,9 +3,13 @@
 import { PencilSimple, Wrench } from "@phosphor-icons/react";
 import { formatTime } from "@/lib/analyzer/segment";
 import { useI18n } from "./i18n";
+import { CopyButton } from "./improve-panel";
 import type { RiskBeat } from "./shared";
 
 const HOOK_ZONE = 3;
+
+const HEADER_BUTTON =
+  "inline-flex h-9 items-center gap-1.5 rounded-lg border border-line px-3 text-sm font-medium text-ink transition-colors duration-150 hover:bg-surface-2";
 
 const SEGMENT_TONE: Record<RiskBeat["risk"], string> = {
   low: "bg-low/75",
@@ -28,12 +32,15 @@ function tickStep(total: number) {
 
 export function DropOffMap({
   beats,
+  script,
   selected,
   onSelect,
   onEdit,
   stale,
 }: {
   beats: RiskBeat[];
+  // The checked script as written, with its original line breaks.
+  script: string;
   selected: number | null;
   onSelect: (id: number | null) => void;
   onEdit: () => void;
@@ -48,21 +55,20 @@ export function DropOffMap({
 
   return (
     <div className="flex h-full flex-col">
-      <div className="flex items-start justify-between gap-4 border-b border-line px-5 pb-5 pt-5 sm:px-6">
-        <div>
+      <div className="flex flex-wrap items-start justify-between gap-x-4 gap-y-3 border-b border-line px-5 pb-5 pt-5 sm:px-6">
+        <div className="min-w-[11rem] flex-1">
           <h2 className="font-display text-lg font-medium tracking-[-0.02em]">{m.map.title}</h2>
           <p className="mt-1 text-sm text-muted">
             {counts.high + counts.medium === 0 ? m.map.clean : m.map.summary(counts.high, counts.medium)}
           </p>
         </div>
-        <button
-          type="button"
-          onClick={onEdit}
-          className="inline-flex h-9 shrink-0 items-center gap-1.5 rounded-lg border border-line px-3 text-sm font-medium text-ink transition-colors duration-150 hover:bg-surface-2"
-        >
-          <PencilSimple size={16} aria-hidden />
-          {m.map.editScript}
-        </button>
+        <div className="flex shrink-0 gap-2">
+          <CopyButton text={script} label={m.common.copy} className={HEADER_BUTTON} />
+          <button type="button" onClick={onEdit} className={HEADER_BUTTON}>
+            <PencilSimple size={16} aria-hidden />
+            {m.map.editScript}
+          </button>
+        </div>
       </div>
 
       {stale && (

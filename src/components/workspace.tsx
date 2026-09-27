@@ -251,6 +251,7 @@ export function Workspace() {
         {mode === "review" && analysis ? (
           <DropOffMap
             beats={analysis.beats}
+            script={checked?.script ?? draft.script}
             selected={selected}
             onSelect={setSelected}
             onEdit={() => setMode("edit")}

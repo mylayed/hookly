@@ -13,7 +13,7 @@ export type Async<T> =
   | { status: "done"; data: T }
   | { status: "error"; error: unknown };
 
-function CopyButton({ text, label }: { text: string; label: string }) {
+export function CopyButton({ text, label, className }: { text: string; label: string; className?: string }) {
   const { m } = useI18n();
   const [copied, setCopied] = useState(false);
   return (
@@ -28,7 +28,10 @@ function CopyButton({ text, label }: { text: string; label: string }) {
           setCopied(false);
         }
       }}
-      className="inline-flex h-8 items-center gap-1.5 rounded-lg px-2.5 text-sm text-muted transition-colors duration-150 hover:bg-surface-2 hover:text-ink"
+      className={
+        className ??
+        "inline-flex h-8 items-center gap-1.5 rounded-lg px-2.5 text-sm text-muted transition-colors duration-150 hover:bg-surface-2 hover:text-ink"
+      }
     >
       {copied ? <Check size={16} className="text-low" aria-hidden /> : <Copy size={16} aria-hidden />}
       {copied ? m.common.copied : label}
